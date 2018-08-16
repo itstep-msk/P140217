@@ -1,0 +1,159 @@
+body {
+	margin: 0;
+    font-family: 'Hind', sans-serif;
+}
+
+.wrapper {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.top-panel__background {
+    background: #2d2d2d;
+}
+
+.top-panel {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+
+.top-panel__content {
+	display: inline-block;
+    margin-top: 14px;
+    margin-right: 36px;
+    font-size: 14px;
+}
+
+.top-panel__content i {
+    margin-right: 10px;
+}
+
+.top-panel--right {
+    margin-top: 18px;
+}
+
+.top-panel__icon {
+	width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 22px;
+}
+
+.top-panel__icon:last-child {
+    margin-right: 0;
+}
+
+.header__logo {
+    background: #0f0;
+    width: 245px;
+    height: 90px;
+    display: inline-block;
+    margin-bottom: -10px;
+}
+
+.header__nav {
+    float: right;
+    margin-right: 46px;
+    margin-top: 34px;
+}
+
+.header__nav-item {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 35px;
+    font-weight: bold;
+    color: #2e2e2e;
+}
+
+.slider {
+    text-align: center;
+    color: white;
+}
+
+.slider__container {
+    padding-top: 285px;
+    padding-bottom: 320px;
+}
+
+.slider__caption {
+    font-size: 78px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.slider__tagline {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.slider__container {
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://media.istockphoto.com/photos/business-people-having-discussion-in-board-room-picture-id627419088?s=2048x2048);
+    background-size: cover;
+    padding-top: 285px;
+    padding-bottom: 320px;
+}
+
+.slider__caption {
+    font-size: 78px;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.slider__caption:after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 105%;
+    border: 10px solid;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.advantages  {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.advantages__caption {
+    font-size: 20px;
+    font-weight: bold;
+}
+/* f8be2e  ff484d*/
+.advantages__caption i {
+    background: linear-gradient(45deg, #f8be2e, #ff484d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 10px;
+}
+
+.advantages__content {
+    margin-top: 10px;
+    line-height: 30px;
+}
+
+.advantages__section {
+    width: 30%;
+    border-bottom: 1px solid;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.advantages__section:nth-last-of-type(-n+3) {
+    border-bottom: none;
+}
