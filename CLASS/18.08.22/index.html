@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<!-- Асихронно, не сохраняется порядок выполнения.
+<script async src="lib.js"></script>
+<script async src="script0.js"></script>
+<script async src="script1.js"></script>
+-->
+
+<!-- Асихронно, сохраняется порядок выполнения.
+<script defer src="lib.js"></script>
+<script defer src="script0.js"></script>
+<script defer src="script1.js"></script>
+-->
+<div class="🤓"></div>
+<script>
+	//alert("Hello world");
+	var a = 1;
+	a = 2;
+	//alert(a) // 2
+	var arr = [];
+	var message;
+	var _ = 1;
+	var $ = 2;
+	var apple = 3;
+	var moiTovar = 123;
+
+	//console.log("Привет мир");
+	//console.log(message);
+
+	/* Шесть типов данных */
+	var num = 1;
+	var numb = 123.456;
+	var str = "Hola world";
+	var bool = true;
+	var nullVariable = null;
+	var undef = undefined;
+	var obj = {}
+/*
+	console.log(typeof num);
+	console.log(typeof numb);
+	console.log(typeof str);
+	console.log(typeof bool);
+	console.log(typeof nullVariable);
+	console.log(typeof undef);
+	console.log(typeof obj);
+
+	console.log(1 / 0) // Infinity
+	console.log(-1 / 0) // -Infinity
+	console.log("Привет" / 2) // NaN - Not a number
+*/
+	var fruits = { 
+		apple: 1, 
+		orange: 2,
+		vegetables: [1,2,3],
+		city: {
+			Moscow: 1,
+			SPB: 2
+		},
+		greeting: function() {
+			return "Hello"
+		}
+	}
+	console.log(fruits.greeting())
+/*
+	console.log(fruits.apple, fruits.orange) // 1 2
+	console.log(fruits.vegetables[0]) // 1
+	console.log(fruits.city.Moscow) // 1
+	console.log(fruits.city); //  {	Moscow: 1, SPB: 2 }
+*/
+	function Hello(name) {
+		return name == undefined ? "Введите имя..." : "Привет " + name;
+	}
+/*
+	console.log(Hello("Дмитрий"));
+	console.log(Hello("Александр"));
+	console.log(Hello());
+*/
+	/* Взаимодействие с пользователем */
+	// alert("Привет мир");
+	//var confirmResult = confirm("Вам есть 18 ?");
+	//console.log(confirmResult);
+
+	//var promptResult = prompt("Сколько вам лет ?");
+	//console.log(promptResult)
+
+	//console.log(Number("1")) // 1
+	//console.log(String(678)) // "678"
+	//console.log(Boolean(0)) // false
+
+	// Унарный оператор + преобразует строки в числа если в строке число
+	//console.log(+"123")
+	//console.log(+"1" + +"2")
+</script>
+
+</body>
+</html>
