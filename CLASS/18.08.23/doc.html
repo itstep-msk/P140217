@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<style>
+	.apple {
+		color: purple !important;
+	}
+
+	.apple {
+		color: white;
+	}
+</style>
+
+<div class="apple">Яблоко</div>
+
+
+
+<script>
+
+	/*
+	.innerHTML - у обычных html элементв
+	.value - у полей для ввода информаци
+	*/
+
+	var apple = document.querySelector(".apple");
+	console.log(apple.innerHTML);
+	apple.innerHTML = "Апельсины";
+	console.log(apple.innerHTML);
+
+	apple.addEventListener("click", function() {
+		console.log("Событие работает");
+	})
+
+	apple.style.background = "green";
+
+</script>
+
+</body>
+</html>
