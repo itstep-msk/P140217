@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vanilla bubble</title>
+</head>
+<body>
+
+<style>
+	.bubble {
+		width: 50px;
+		height: 50px;
+		background: green;
+		border-radius: 50%;
+		display: inline-block;
+	}
+</style>
+
+<div data-bg="red" class="bubble"></div>
+<div data-bg="red" class="bubble"></div>
+<div data-bg="red" class="bubble"></div>
+<div data-bg="red" class="bubble"></div>
+<div data-bg="red" class="bubble"></div>
+
+<script>
+	var bubble = document.querySelectorAll(".bubble");
+
+	for(var i = 0; i < bubble.length; i++) {
+		bubble[i].addEventListener("click", function() {
+			var color = this.getAttribute("data-bg");
+			this.style.background = color;
+			if(color == "red") {
+				this.setAttribute("data-bg", "green")
+			} else {
+				this.setAttribute("data-bg", "red")
+			}
+			
+		})
+	}
+</script>
+
+</body>
+</html>

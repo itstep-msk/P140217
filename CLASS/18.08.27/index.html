@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery</title>
+</head>
+<body>
+
+<div class="apple">Яблоко</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	/*
+	// JS
+	document.querySelector(".apple");
+	// jQuery
+	$(".apple");
+	*/
+
+	console.log($(".apple").html()); // Яблоки
+	$(".apple").html("<b>Апельсин</b>");
+	console.log($(".apple").html()); // <b>Апельсин</b>
+	$(".apple").append(" кислые"); // <b>Апельсин</b> кислые
+	/*
+	Поиск элемента
+	document.querySelector("");
+	$("");
+
+	Получание данных
+	.innerHTML / .value
+	.html() / .val()
+
+	События
+	.addEventListener("event", function() {});
+	.on("event", function() {});
+	*/
+</script>
+</body>
+</html>

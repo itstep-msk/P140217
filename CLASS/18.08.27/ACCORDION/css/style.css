@@ -1,0 +1,26 @@
+body {
+	margin: 0;
+	font-family: Arial;
+}
+
+.accordion {
+	width: 500px;
+	margin: 20px auto;
+}
+
+.accordion-caption {
+    background: #dcdcdc;
+    padding: 10px;
+    cursor: pointer;
+    transition: all, .25s;
+}
+
+.accordion-caption:hover {
+	background: #c5c5c5;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+    background: #f7f7f7;
+}
