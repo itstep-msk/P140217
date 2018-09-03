@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX</title>
+</head>
+<body>
+<!--
+<form action="apple.php" method="post">
+	<input name="fruits">
+	<input type="submit">
+</form>
+-->
+<input class="firstName">
+<input class="lastName">
+<input type="submit" class="button">
+<div class="result"></div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+	var firstName = $(".firstName");
+	var lastName = $(".lastName");
+	var button = $(".button");
+	var result = $(".result");
+
+	button.on("click", function() {
+
+		$.ajax({
+			type: "POST",
+			url: "apple.php",
+			data: {"fruits":lastName.val()},
+			success: function(myData) {
+				result.html(myData);
+			}
+		})
+})
+</script>
+</body>
+</html>
