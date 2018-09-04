@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script>
+
+	// Из строки в число
+	var width = "100px";
+
+	console.log(Number(width)) // NaN
+	console.log(parseInt(width)) // 100
+	console.log(parseFloat("123.456")) // 123.456
+
+	// В строки
+	console.log(String(true))
+	console.log(String(123))
+	console.log(String(null))
+	console.log(String(NaN))
+
+	// В логические
+
+	console.log(Boolean(1)) // true
+	console.log(Boolean(0)) // false
+	console.log(Boolean("")) // false
+	console.log(Boolean(null)) // false
+	console.log(Boolean(undefined)) // false
+	console.log(!!(1)) // true
+
+	for(var i = 0, a = []; i < 10; a[i++] = i ) ;
+	console.log(a)
+
+	var apple = 11;
+
+	switch(apple) {
+		case 10:
+		case 11:
+		case 12:
+			console.log("10, 11 и 12");
+	}
+
+	function Hello(name) {
+		if(name == undefined) {
+			return "Вы не ввели имя..."
+		}
+		return "Hello " + name;
+	}
+
+	function checkAge(age) {
+		return age > 18;
+	}
+
+	function showMovie(age) {
+		if(checkAge(age)) {
+			console.log("Показать фильм...")
+		} else {
+			console.log("Вам меньше 18...")
+		}
+	}
+
+	showMovie(20);
+	showMovie(17);
+
+	//console.log(Hello("Alex"));
+	//console.log(Hello());
+
+	function greeting() {
+		console.log(arguments);
+	}
+
+	console.log(greeting("Alex", "Dmitriy", "Vasya"));
+
+	function f(5) {
+		if(5 == 0) {
+			return 1;
+		} else {
+			return 5 * 24;
+		}
+	}
+
+	function f(4) {
+		if(4 == 0) {
+			return 1;
+		} else {
+			return 4 * 6;
+		}
+	}
+
+	function f(3) {
+		if(3 == 0) {
+			return 1;
+		} else {
+			return 3 * 2
+		}
+	}
+
+	function f(2) {
+		if(2 == 0) {
+			return 1;
+		} else {
+			return 2 * 1;
+		}
+	}
+
+	function f(1) {
+		if(1 == 0) {
+			return 1;
+		} else {
+			return 1 * 1;
+		}
+	}
+
+	function f(0) {
+		if(0 == 0) {
+			return 1;
+		} else {
+			return 0 * f(0);
+		}
+	}
+
+	console.log(f(5));
+
+</script>
+
+</body>
+</html>

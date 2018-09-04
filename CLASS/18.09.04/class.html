@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Class</title>
+</head>
+<body>
+
+<script>
+	function User(name, age_in, gender) {
+		var age = age_in;
+
+		this.name = name;
+		this.gender = gender;
+		this.getAge = function() {
+			return age;
+		}
+		this.setAge = function(age_param) {
+			if(age_param < 0 || age_param > 100) {
+				return "Некорректный возраст";
+			} else {
+				age = age_param;
+				return "Возраст изменен на " + age;
+			}
+		}
+	}
+
+	var user = new User("Alex",20, "male");
+	console.log(user.setAge(200));
+	console.log(user.setAge(25));
+	console.log(user.getAge());
+</script>
+
+</body>
+</html>

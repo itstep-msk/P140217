@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Объекты</title>
+</head>
+<body>
+
+<script>
+	var obj = {
+		"return": 1,
+		name: "Alex",
+		fruit: "Apple",
+		basket: {
+			fruits: ["apple", "orange", "plum"],
+			vegetable: ["carrot"]
+		},
+		greeting: function(n) {
+			if(n == undefined) {
+				n = this.name;
+			}
+			return "Hello " + n;
+		},
+		greetingThis: function() {
+			return "Hello " + this.name
+		}
+	}
+
+	console.log(obj.greeting("Vasya"));
+	console.log(obj.greeting());
+	console.log(obj.greetingThis());
+
+	console.log(obj.name);
+	console.log(obj["name"]);
+
+	console.log(obj["return"]);
+	console.log(obj.basket);
+</script>
+
+</body>
+</html>
