@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Введение в свойство и методы</title>
+</head>
+<body>
+
+<script>
+	// Строки
+	var apple = "Яблоки";
+	console.log(apple.length); // 6
+	console.log(apple[0]) // "Я"
+	console.log(typeof apple[0]) // "string"
+	console.log(apple.toUpperCase()); // "ЯБЛОКИ"
+	console.log(apple); // "Яблоки"
+	console.log(apple.toLowerCase()); //
+
+	// Числа
+	var orange = 5.123;
+	console.log(orange.toFixed()); // "5";
+	console.log(orange.toFixed(2)); // "5.12";
+	console.log(orange.toFixed(5)); // "5.12300";
+	var a = 1.2345;
+	var b = 5.6789;
+	var c;
+	a = a.toFixed(3);
+	b = b.toFixed(3);
+	c = parseFloat(a) + parseFloat(b);
+	console.log(c);
+
+	// Объекты
+	//var obj = new Object();
+	var obj = {}
+
+	obj.name = "Вася";
+	obj.age = 25;
+
+	console.log(obj);
+
+	delete obj.age;
+
+	console.log(obj)
+
+	var plum = obj;
+	plum.name = "Клава";
+	console.log(plum);
+	console.log(obj);
+
+	obj.fruit = {
+		apple: 1
+	}
+
+	for(var item in obj) {
+		console.log(item);
+		console.log(typeof obj[item])
+	}
+
+	var user = {
+		name: "Petya",
+		age: 20,
+		gender: "male"
+	}
+
+	var newUser = {};
+
+	for(var item in user) {
+		newUser[item] = user[item];
+	}
+
+	console.log(newUser);
+
+	var codes = {
+		"7": "Россия",
+		"38": "Украина",
+		"1": "США"
+	}
+
+	// Автоматическая сортировка
+	for(var code in codes) {
+		console.log(code);
+	}
+
+	//console.log(obj.fruit.apple); // 1
+
+	// Массивы с числовыми индексами
+	// var arr = new Array;
+	var arr = [];
+
+	var fruit = ["apple","orange","plum"];
+	console.log(fruit[0]) // "apple"
+
+	fruit[5] // undefined
+	fruit[5] = "melon";
+	console.log(fruit); // ["apple", "orange", "plum", empty × 2, "melon"]
+	//alert(fruit); // apple,orange,plum,,,melon
+
+	console.log(fruit.length); // 6
+	fruit.length = 10;
+	console.log(fruit);
+	fruit.length = 3;
+	console.log(fruit);
+	fruit.pop();
+	console.log(fruit);
+	fruit.shift()
+	console.log(fruit);
+
+	// Массивы - методы.
+	var str = "Привет мир";
+	console.log(str.split("вет")) // ["При"," мир"];
+	console.log(str.split(" ")) // ["Привет","мир"];
+	console.log(str.split("и")) // ["Пр", "вет м", "р"]
+	console.log(str.split("")); // ["П", "р", "и", "в", "е", "т", " ", "м", "и", "р"]
+
+	console.log(str.split("",5)) // ["П", "р", "и", "в", "е"]
+
+	str = str.split("");
+	console.log(str.join(":")) // П:р:и:в:е:т: :м:и:р
+
+	delete str[0];
+	//alert(str);
+	console.log(str);
+
+	// Splice (Заменяет, удаляет, добавляет)
+	var fruit = ["apple","orange","plum"];
+
+	fruit.splice(1,1); // Первый аргумент с какой позиции начать, Второй - сколько удалить элементов
+
+	console.log(fruit); // ["apple", "plum"]
+
+	fruit.splice(0,0,"banana","cherry");
+
+	console.log(fruit) // ["banana", "cherry", "apple", "plum"]
+
+	fruit.splice(fruit.length,0,"melon");
+
+	console.log(fruit) // ["banana", "cherry", "apple", "plum", "melon"]
+
+	fruit.splice(0,0,{vegetable: "carrot"})
+ 
+ 	console.log(fruit) // [{…}, ...]
+
+ 	// slice (Копирует ОТ и ДО)
+
+ 	// Копирование массива полностью(без передачи по ссылке)
+ 	var fr = fruit.slice();
+ 	console.log(fr)
+ 	//fr[2] = "123";
+ 	//console.log(fruit)
+
+ 	// concat
+ 	var a = [1,2,3];
+ 	var b = [4,5,6];
+ 	var c;
+ 	c = a.concat(b);
+ 	console.log(c) // [1, 2, 3, 4, 5, 6]
+
+ 	// indexOf
+
+ 	console.log(a.indexOf(3)) // 2
+ 	console.log(a.indexOf(5)) // -1
+ 	console.log(c.lastIndexOf(5)) // 4
+
+ 	// Ключи объекта без цикла
+ 	console.log(Object.keys(user)); // ["name", "age", "gender"]
+
+ 	// Массивы перебирающие методы
+
+ 	var fruit = ["apple","orange","plum"];
+
+ 	fruit.forEach(function(item, i) {
+ 		console.log(item, i)
+ 	})
+
+ 	var num = [1,2,3,4,5,6,7,8,9,10]
+ 	// Возвращает новый
+ 	var newNum = num.filter(function(item) {
+ 		if(item % 2 == 0) {
+ 			return item;
+ 		}
+ 	})
+
+ 	console.log(newNum);// [2, 4, 6, 8, 10]
+
+ 	// Трансформирует массив
+	var newNum = num.map(function(item) {
+ 		if(item % 2 == 0) {
+ 			return item;
+ 		}
+ 	})
+
+	console.log(newNum); // [undefined, 2, undefined, 4, undefined, 6, undefined, 8, undefined, 10]
+</script>
+
+</body>
+</html>
