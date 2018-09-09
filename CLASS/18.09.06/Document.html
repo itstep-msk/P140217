@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+</head>
+<body>
+
+<div class="fruit">
+	<div class="orange">Апельсин</div>
+	<div class="apple">
+		<div class="red">Красные яблоки</div>
+		<div class="green">Зеленые яблоки</div>
+	</div>
+	<div class="banana">Банан 1</div>
+	<div class="banana">Банан 2</div>
+	<div class="banana">Банан 3</div>
+	<div class="banana">Банан 4</div>
+	<div class="banana">Банан 5</div>
+</div>
+
+<a href="" class="link">Ссылка</a>
+
+<script>
+	//console.log(document);
+	//console.log(document.body.innerHTML);
+	//document.body.style.background = "green";
+
+	var apple = document.querySelector(".apple");
+	console.log(apple);
+	console.log(apple.innerHTML);
+	apple.style.background = "green";
+
+	console.log(apple.parentNode); // Обращение к родителю
+	//console.log(apple.childNodes); // Обращение к дочерним элементам
+	console.log(apple.children) // Обращение к дочерним элементам
+	console.log(apple.previousElementSibling); // Обращение к выше стоящим элементам
+	console.log(apple.nextElementSibling); // Обращение к ниже стоящим элементам
+	console.log(apple.firstElementChild); // Обращение к первому дочерниму элементу
+	console.log(apple.lastElementChild); // Обращение к последнему дочернему элементу
+	console.log(apple.childElementCount); // Кол-во дочерних элементов: 2
+
+	// Поиск элемента
+	// document.getElementById(""); // поиск по id
+	// document.getElementsByClassName("") // поиск по классу
+	// document.getElementsByTagName("") // поиск по тегу
+	// document.querySelector("") // поиск элемента по css селектору(одного)
+	// document.querySelectorAll("") // поиск элементов по css селектору(все, возвращает ввиде массива)
+
+	var banana = document.querySelectorAll(".banana");
+	
+	for(var i = 0; i < banana.length ; i++) {
+		banana[i].style.background = "yellow";
+	}
+
+	console.log(banana);
+
+	// Атрибуты
+	console.log(apple.hasAttribute("fruit"));
+	apple.setAttribute("fruit","true"); // fruit="true"
+	console.log(apple.hasAttribute("fruit"));
+
+	console.log(document.querySelector("[fruit='true']"))
+	console.log(document.querySelector("div[fruit='true']"))
+	console.log(document.querySelector("div.apple[fruit='true']"))
+	console.log(document.querySelector("html body .fruit div.apple[fruit='true']"))
+
+	console.log(apple.attributes);
+	console.log(apple.attributes[1].nodeValue); // "true"
+	console.log(apple.getAttribute("class")) // apple
+	console.log(apple.removeAttribute("fruit"))
+
+	document.querySelector(".link").setAttribute("href","http://yandex.ru")
+
+</script>
+
+</body>
+</html>

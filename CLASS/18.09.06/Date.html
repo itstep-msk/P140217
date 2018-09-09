@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Date</title>
+</head>
+<body>
+
+<script>
+	var date = new Date();
+
+	console.log(date);
+	console.log(date.getFullYear()); // 2018
+	console.log(date.getYear());
+	console.log(date.getDay()); // Возвращает не текущий день месяца а текущий день(индекс) недели.
+	console.log(date.getDate()); // Текущий день месяца
+	console.log(date.getTime()); // 1536214236654
+
+	var customDate = new Date(2011,0,2,2,3,4,5);
+	/* (Год,месяц, день, час, минута, секунда, милисекунда)*/
+	console.log(customDate); // Sun Jan 02 2011 02:03:04 GMT+0300 (Москва, стандартное время)
+	var count = 0;
+
+	var start = +new Date;
+	for(var i = 0; i < 100000000; i++) {
+		count+=i;
+	}
+	var end = +new Date;
+	console.log("Цикл выполняется за: " + (end - start)/1000 + " с.");
+
+	var count = 0;
+	console.time("Мой таймер");
+	for(var i = 0; i < 100000000; i++) {
+		count+=i;
+	}
+	console.timeEnd("Мой таймер");
+</script>
+
+</body>
+</html>
