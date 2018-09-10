@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Real time editor</title>
+</head>
+<body>
+
+<style>
+	body {
+		margin: 0;
+	}
+	.box {
+		width: 30%;
+		height: 100vh;
+		box-sizing: border-box;
+		resize: none;
+	}
+	.result {
+		width: 70%;
+		height: 100vh;
+		box-sizing: border-box;
+		border: 1px solid;
+		display: inline-block;
+		margin-left: -4px;
+		vertical-align: top;
+	}
+</style>
+
+<textarea class="box"></textarea>
+<div class="result"></div>
+
+<script>
+	var box = document.querySelector(".box");
+	var result = document.querySelector(".result");
+
+	box.addEventListener("input", function() {
+		result.innerHTML = box.value;
+	})
+</script>
+
+</body>
+</html>

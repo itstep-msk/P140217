@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mini jQuery</title>
+</head>
+<body>
+
+<div class="apple">Яблоко</div>
+
+<script>
+	/*
+	document.querySelector(".class");
+	doc.find(".class");
+	*/
+
+	var doc = {
+		element: null,
+		find: function(el) {
+			this.element = document.querySelector(el);
+			return this;
+		},
+		html: function(value) {
+			if (value == undefined) {
+				return this.element.innerHTML;
+			} else {
+				this.element.innerHTML = value;
+				return this;
+			}
+			
+		},
+		css: function(style,value) {
+			this.element.style[style] = value;
+			return this;
+		}
+	}
+
+	console.log(doc.find(".apple"));
+	console.log(doc.find(".apple").html());
+	doc.find(".apple").css("background","green").css("color","red");
+</script>
+
+</body>
+</html>

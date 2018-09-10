@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Координаты</title>
+</head>
+<body>
+
+<style>
+	body {
+		margin: 0;
+	}
+	.fruit {
+		border: 1px solid;
+		width: 200px;
+		height: 200px;
+		position: relative;
+	}
+	.apple {
+		width: 20px;
+		height: 20px;
+		background: green;
+		position: absolute;
+		left: 30px;
+		top: 40px;
+	}
+</style>
+
+<div class="fruit">
+	<div class="apple"></div>
+</div>
+
+<script>
+	var apple = document.querySelector(".apple");
+	var fruit = document.querySelector(".fruit");
+	var a = apple.offsetTop;
+	var b = apple.offsetLeft;
+	var c = apple.offsetLeft + apple.offsetWidth;
+	var d = apple.offsetTop + apple.offsetHeight;
+	var resulution = false;
+
+	apple.addEventListener("mousedown", function(e) {
+		var x = e.offsetX;
+		var y = e.offsetY;
+		resulution = true;
+
+		this.addEventListener("mousemove", function(e) {
+			if(resulution) {
+				this.style.left = e.clientX - x + "px";
+				this.style.top = e.clientY - y + "px";
+			}
+			if(apple.offsetLeft + apple.offsetWidth >= fruit.offsetWidth) {
+				apple.style.left = fruit.offsetWidth - apple.offsetWidth - 2 + "px";
+			}
+			if(apple.offsetTop + apple.offsetHeight >= fruit.offsetHeight) {
+				apple.style.top = fruit.offsetHeight - apple.offsetHeight - 2 + "px";
+			}
+		})
+	})
+
+	apple.addEventListener("mouseup", function() {
+		resulution = false;
+	})
+
+</script>
+
+</body>
+</html>
