@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Дескрипторы, геттеры, сеттеры</title>
+</head>
+<body>
+
+<script>
+	var fruits = {
+		apple: 123
+	}
+
+	Object.defineProperty(fruits, "orange", {
+		value: "Апельсин",
+		configurable: false,
+		writable: false,
+		enumerable: false,
+	})
+
+	console.log(fruits);
+	delete fruits.orange;
+	console.log(fruits);
+	fruits.orange = "Груша";
+	console.log(fruits);
+	
+	for(item in fruits) {
+		console.log(fruits[item]);
+	}
+
+	Object.defineProperty(fruits, "valueApple", {
+		get: function() {
+			return this.apple;
+		},
+		set: function(value) {
+			this.apple = value
+		}
+	})
+
+	console.log(fruits.valueApple) // 123
+	console.log(fruits)
+	fruits.valueApple = 100
+	console.log(fruits.valueApple)
+
+	//console.log(Object.keys(fruits))
+
+	Object.preventExtensions(fruits) // Запрещаяет добавление свойств в объект
+	fruits.newKey = 123;
+	console.log(fruits)
+
+	Object.seal(fruits) // Запрещаяет добавление свойств в объект. ДОПОЛНИЕЛЬНО всем текущим свойствам добавляет configurable: false
+
+	Object.freeze(fruits) // Запрещаяет добавление свойств в объект. ДОПОЛНИЕЛЬНО всем текущим свойствам добавляет configurable: false
+	// ДОПОЛНИТЕЛЬНО добавляет writable: false
+
+	Object.isExtensible(fruits) // возвращает false если на объект был вызвано одно из свойств (preventExtensions, seal, freeze)
+	Object.isSealed(fruits) // возвращает true если добавление и удаление свойств объекта запрещено, и все текущие свойства являются configurable: false
+	Object.isFrozen(fruits) // возвращает true если добавление и удаление свойств объекта запрещено, и все текущие свойства являются configurable: false, writable: false
+
+
+
+</script>
+
+</body>
+</html>

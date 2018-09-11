@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>This, call, apply</title>
+</head>
+<body>
+
+<script>
+	// Вызов через call
+
+	function showName(message) {
+		console.log(this.name + ":" + message);
+	}
+
+	var user = {
+		name: "Alex"
+	}
+	/* 
+	Отличия обычного вызова showName(a,b,c) от showName.call(this,a,b,c)
+	в том, что первым аргументом метода call является объект.
+	*/
+	showName.call(user,"Привет мир")
+
+	// Копирования метода
+
+	/*
+	function apple() {
+		console.log(arguments) // [1,2,3,4,5]
+	}
+
+	apple(1,2,3,4,5)
+	*/
+
+	function getArgument() {
+		arguments.myJoin = [].join
+		var result = arguments.myJoin("-")
+		return result
+	}
+
+	console.log(getArgument(1,2,3,4,5)) // "1-2-3-4-5";
+</script>
+
+</body>
+</html>

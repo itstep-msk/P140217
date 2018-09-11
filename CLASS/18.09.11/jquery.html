@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery</title>
+</head>
+<body>
+
+<div class="apple">Яблоко</div>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+	/*
+	document.querySelector(".apple"); // Javascript
+	$(".apple"); // jQuery
+	*/
+
+	/*
+	JQuery состоит из:
+	$() - функции, для нахождения элемента внутри DOM'a (документа)
+	.methods() - методов, для работы с найденым элементом
+	*/
+
+	$(".apple").html() // Яблоко
+	$(".apple").html("Апельсин")
+	$(".apple").html() // Апельсин
+
+	$(".apple").css({"background":"green"}).html("Цвет поменяли");
+
+	/*
+	Особенность функции $(), что она работает как с одним так и несколькими элементами одновременно
+
+	<div class="orange">Апельсин</div>
+	<div class="orange">Апельсин</div>
+	<div class="orange">Апельсин</div>
+
+	$(".orange").html("Яблоко")
+
+	<div class="orange">Яблоко</div>
+	<div class="orange">Яблоко</div>
+	<div class="orange">Яблоко</div>
+	*/
+
+
+</script>
+
+</body>
+</html>

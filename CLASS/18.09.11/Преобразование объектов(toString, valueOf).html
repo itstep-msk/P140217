@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Преобразование объектов(toString, valueOf)</title>
+</head>
+<body>
+
+<script>
+	// Преобразование объекта к строке
+
+	var obj = {
+		user: "dvgisgidfsghui"
+	};
+
+	//alert(obj) // [object Object]
+
+	if({} && []) {
+		console.log("Все объекты - true")
+	}
+
+	var user = {
+		name: "Alex"
+	}
+
+	//alert(user) // [object Object]
+
+	user.toString = function() {
+		return "Метод переназначен"
+	}
+
+	// Преобразование к строке у разных объектов
+	//alert(user) // "Метод переназначен"
+	//alert([1,2,3]) // "1,2,3"
+	//alert(new Date) // Tue Sep 11 2018 09:35:21 GMT+0300 (Москва, стандартное время)
+
+	// Преобразование объекта к числу
+	
+	// МЕТОД VALUEOF НЕ ПЕРЕНАЗНАЧАЕТСЯ
+	///////////////////////////////////////
+	/*var fruits = {
+		apple: 123,
+		valueOf: function() {
+			return "Попыпка преобразования к числу";
+		},
+		toString: function() {
+			return "Попытка преобразования к строке";
+		}
+	}
+
+	console.log(fruits) // NaN
+ 
+	console.log(+fruits) // "Попыпка преобразования к числу"
+	delete fruits.valueOf
+	console.log(+fruits) // "Попытка преобразования к строке"*/
+	////////////////////////////////////////
+
+	var fruits = new Boolean(false);
+	console.log(fruits);
+	if(fruits) {
+		console.log("Работает ?!");
+	}
+
+	// fruits - это объект. А объект ВСЕГДА преобразуется в true при логическом преобразовании
+
+	{}[0] // [0]
+	{} + {} // [object Object][object Object]
+
+</script>
+
+</body>
+</html>

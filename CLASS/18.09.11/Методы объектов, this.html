@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Методы объектов, this</title>
+</head>
+<body>
+
+<script>
+/*
+	var user = {
+		name: "Alex",
+		sayHi: function(){
+				showName(this)
+		}
+	}
+
+	user.sayHi();
+
+	function showName(ourObj) {
+		console.log(ourObj.name)
+	}
+	*/
+
+	var user = {
+		name: "Alex"
+	}
+	var admin = {
+		name: "Admin"
+	}
+
+	user.getName = func;
+	admin.getName = func;
+
+	user.getName();
+	admin.getName();
+
+	function func() {
+		console.log(this.name);
+	}
+
+	console.log(this) // window
+	function withStrict() {
+		"use strict";
+		console.log(this); // undefined
+		testVar = 123; // testVar is not defined
+	}
+	//withStrict();
+
+	var myUser = {
+		name: "Alex",
+		sayHi: function() {
+			console.log("Привет " + this.name);
+			console.log(this)
+		}
+	}
+
+	myUser.sayHi();
+
+	(myUser.name == "Alex" ? myUser.sayHi : false)()
+</script>
+
+</body>
+</html>
