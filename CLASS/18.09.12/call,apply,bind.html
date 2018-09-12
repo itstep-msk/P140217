@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>call, apply, bind</title>
+</head>
+<body>
+
+<script>
+	
+	var user = {
+		name: "Alex"
+	}
+
+	function getName(a,b,c) {
+		return this.name + a + b + c;
+	}
+
+	console.log(getName(1,2,3));
+
+	// CALL
+	console.log(getName.call(user,1,2,3));
+
+	// APPLY
+	console.log(getName.apply(user,[1,2,3]));
+
+	// ARGUMENTS
+	function getNameWithNumber() {
+		var result = "";
+		for(var i = 0; i < arguments.length; i++) {
+			result += arguments[i];
+		}
+
+		return this.name + result;
+	}
+
+	console.log(getNameWithNumber.apply(user,[1,2,3,4,5])) // Alex12345
+
+	// ARGUMENTS JOIN
+	function getNameWithNumberJoin() {
+		arguments.myJoin = [].join
+		return this.name + arguments.myJoin("");
+	}
+
+	console.log(getNameWithNumberJoin.apply(user,[1,2,3,4,5])) // Alex12345
+
+	var objectSimilarArray = {
+		0: "А",
+		1: "Б",
+		2: "В",
+		length: 3
+	}
+
+	objectSimilarArray.join = [].join
+	objectSimilarArray.push = [].push
+	objectSimilarArray.each = [].forEach
+
+	console.log(objectSimilarArray.join(":"))
+	objectSimilarArray.push(1,2,3);
+	console.log(objectSimilarArray);
+
+	objectSimilarArray.each(function(item, index) {
+		console.log(item, index);
+	})
+
+	// APPLY WITH MATH
+
+	console.log(Math.min(3,4,6,8,2)) // 2
+	console.log(Math.min.apply(null, [3,4,6,8,2])) // 2
+
+	// BIND
+	var fruits = {
+		orange: 20,
+		apple: 10
+	}
+
+	function getFruit() {
+		console.log(this.apple);
+	}
+	// Методы call, apply аналогичны обычному вызову. Функция вызывается один раз и не передается как ссылка в setInterval
+	//setInterval(getFruit.call(fruits), 1000);
+	// Аналогично setInterval(getFruit(), 1000);
+	setInterval(getFruit.bind(fruits), 1000);
+	// Метод bind не вызывает функцию а связывает данные с объектом
+
+	// Вызов внутри тернарного оператора с привязкой к объекту. Без привязки this будет ссылаться объект window
+	(fruits.orange == 20 ? getFruit.bind(fruits): false)();
+
+	
+</script>
+</body>
+</html>

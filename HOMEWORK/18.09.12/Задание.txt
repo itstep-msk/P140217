@@ -1,0 +1,53 @@
+1) Создать функцию, которая принимает в качестве аргумента объект. Перебирает его ключи и инктементирует содержимое.
+
+В данном примере защитить от перезаписи свойсто apple в объекте fruits и pumpkin в объекте vegetables
+
+var fruits = {
+	apple: 10,
+	orange: 20,
+	plum: 30
+}
+
+var vegetables = {
+	carrot: 10,
+	pumpkin: 20,
+	potato: 30
+}
+
+incKeys(fruits); // {apple: 10, orange: 21, plum: 31}
+incKeys(vegetables); // {carrot: 11, pumpkin: 20, potato: 31}
+
+Модифицировать предыдущий пример и превратить свойство apple в объект с ключами protected и value. Проверять свойство protected и защищать свойство value от перезаписи если значение true
+
+var fruits = {
+	apple: {
+		protected: true,
+		value: 10
+	}
+	orange: {
+		protected: false,
+		value: 20
+	},
+	plum: {
+		protected: false,
+		value: 30
+	}
+}
+
+var vegetables = {
+	carrot: {
+		protected: false,
+		value: 10
+	},
+	pumpkin: {
+		protected: true,
+		value: 20
+	},
+	potato: {
+		protected: false,
+		value: 30
+	}
+}
+
+incKeysProtected(fruits); // {apple: 10, orange: 21, plum: 31}
+incKeysProtected(vegetables); // {carrot: 11, pumpkin: 20, potato: 31}

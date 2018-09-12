@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON</title>
+</head>
+<body>
+
+<script>
+	var numbers = "[0,1,2,3]";
+
+	numbers = JSON.parse(numbers);
+
+	console.log(numbers); // [0,1,2,3]
+
+	var user = '{ "name": "Alex", "age": 3 }';
+
+	/*user = JSON.parse(user, function(a,b) {
+		console.log(b)
+	});*/
+
+	//console.log(user)
+
+	var fruits = {
+		apple: 10,
+		orange: 20
+	}
+
+	fruits = JSON.stringify(fruits, "" ,4);
+
+	console.log(fruits); // "{"apple":10,"orange":20}"
+
+	fruits = JSON.parse(fruits);
+
+	console.log(fruits);
+
+</script>
+</body>
+</html>
