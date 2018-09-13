@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>setInterval и setTimeout</title>
+</head>
+<body>
+
+<script>
+	//var i = 0;
+	/////////////////////////////////////////////
+	/*setInterval(function() {
+		i++;
+		console.log("Таймер работает " + i);
+	}, 1000);
+	*/
+	/*function hello(name) {
+		console.log("Привет " + name);
+		i++;
+		if(i == 5) {
+			clearInterval(timer);
+		}
+	}
+
+	var timer = setInterval(hello, 1000,"Alex");
+	
+	/*
+	setInterval(function() {
+		hello("alex")
+	}, 1000)
+	*/
+
+	///////////////////////////////////////////////
+
+	// setTimeout
+
+	function hello(name) {
+		console.log("Привет " + name);
+	}
+
+	//setTimeout(hello, 1000, "Alex");
+	var timer = setTimeout(function tick() {
+		console.log("Рекурсивный Таймер");
+		/*
+		if(Функция == Закнчила действие) {
+			if(ФункцияВремяВыполнения == 10000) {
+				timer = setTimeout(tick,10000);
+			} else {
+				timer = setTimeout(tick,2000);
+			}
+		}
+		*/
+		
+	},1000)
+</script>
+
+</body>
+</html>

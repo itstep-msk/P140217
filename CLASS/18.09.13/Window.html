@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Window</title>
+</head>
+<body>
+
+<style>
+	body {
+		height: 10000px;
+	}
+</style>
+
+<script>
+	console.log(window);
+
+	var apple = "Яблоки";
+
+	console.log(window.apple); // Яблоки
+
+	/*
+	for(var i = 0; i < 10; i++) {
+		var key = "apple" + i;
+
+		window[key] = i
+	}
+	window.apple0 = 0;
+	window.apple1 = 1;
+	window.apple2 = 2;
+	...
+	*/
+
+	console.log(window.screen.width) // 1920
+	console.log(window.location) // Информация о адресной строке
+
+	window.addEventListener("resize", function() {
+		var bg = document.body.style;
+		var random = Math.floor(Math.random()*3);
+		var color = ["green","red","yellow"];
+
+		bg.background = window.innerWidth<1000?color[random]:"white";
+	})
+
+	window.addEventListener("scroll", function() {
+		console.log(window.scrollY)
+		if(window.scrollY > 1000) {
+			document.body.style.background = "yellow"
+		} else {
+			document.body.style.background = "white"
+		}
+	})
+</script>
+
+</body>
+</html>

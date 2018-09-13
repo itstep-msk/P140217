@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Замыкания</title>
+</head>
+<body>
+
+<script>
+	function Generator(n) {
+		var count = n;
+
+		// Возвращается функция но не вызывается.
+		return function() {
+			return count++;
+		}
+	}
+	// Generator()()
+
+	var apple = Generator(10);
+
+	console.log(apple()) // 10
+	console.log(apple()) // 11
+	console.log(apple()) // 12
+
+	var orange = Generator(0);
+
+	console.log(orange()) // 0
+	console.log(orange()) // 1
+	console.log(orange()) // 2
+</script>
+
+</body>
+</html>

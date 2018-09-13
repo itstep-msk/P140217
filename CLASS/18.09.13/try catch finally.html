@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>try catcyh finally</title>
+</head>
+<body>
+
+<script>
+	function fact(n) {
+		if(n < 0) {
+			// throw "Число меньше нуля"
+			throw new Error("Число меньше нуля");
+			// new Error для красивой записи
+		}
+
+		if(n == 1) {
+			return 1;
+		} else {
+			return n*fact(n-1);
+		}
+	}
+
+	try {
+		fact(-1);
+	}
+	catch(err) {
+		console.log(err)
+	}
+	
+</script>
+
+</body>
+</html>
