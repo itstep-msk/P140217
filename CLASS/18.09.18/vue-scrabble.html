@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue scrabble</title>
+</head>
+<body>
+
+<style>
+	.word {
+		width: 20px;
+		height: 20px;
+	    text-align: center;
+   	 	font-size: 20px;
+	}
+</style>
+
+<div id="app">
+	<input v-model="word">
+	<scrabble v-for="wordItem in wordArray" v-bind:item="wordItem"></scrabble>
+</div>
+
+<script src="vue.js"></script>
+<script>
+	Vue.component("scrabble", {
+		props: ["item"],
+		template: "<input class='word' v-bind:value='item'>"
+	})
+
+	var app = new Vue({
+		el: "#app",
+		data: {
+			word: null,
+			wordArray: null
+		},
+		watch: {
+			word: function() {
+				this.wordArray = this.word.split("");
+			}
+		}
+	})
+</script>
+</body>
+</html>

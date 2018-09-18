@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue form</title>
+</head>
+<body>
+
+<div id="app">
+	<input v-model="login" v-if="seen" placeholder="login">
+	<input v-model="password" v-if="!seen" placeholder="password">
+	<input @click="switchInput" type="submit" value="Переключить">
+	<input type="submit" value="Отправить">
+</div>
+
+<script src="vue.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			seen: true,
+			login: null,
+			password: null
+		},
+		methods: {
+			switchInput: function() {
+				this.seen = !this.seen;
+			}
+		}
+	})
+</script>
+</body>
+</html>

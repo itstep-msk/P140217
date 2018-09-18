@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue template syntax</title>
+</head>
+<body>
+
+<div id="app">
+	<div>{{ message }}</div>
+	<div v-html="htmlCode"></div>
+	<div>{{ 5 + 5 }}</div>
+	<div>{{ num + 1 }}</div>
+	<div>{{ resolution ? "Да":"Нет" }}</div>
+	<div>{{ message.split("").reverse().join("") }}</div>
+</div>
+<h2>APP2</h2>
+<!-- Директивы -->
+<div id="app2">
+	<div v-if="seen">Элемент показывается/скрывается</div>
+	<div v-bind:class="seen ? 'orange': 'blue'">Классы через тернарный оператор</div>
+
+	<!-- Если свойство объекта true то в атрибут class записывается его значение -->
+	<!-- v-bind: = : -->
+	<div :class="classObject">Классы из объекта</div>
+
+	<!-- v-on: = @ -->
+	<div v-on:click="greeting">Приветствие</div>
+	<div @click="greeting">Приветствие</div>
+</div>
+
+<script src="vue.js"></script>
+<script>
+	var ass = false;
+
+	var app2 = new Vue({
+		el: "#app2",
+		data: {
+			seen: true,
+			classObject: {
+				orange: true,
+				apple: true,
+				plum: false
+			}
+		},
+		methods: {
+			greeting: function() {
+				console.log("Hello vue")
+			}
+		}
+	})
+
+	// Интерполяция
+
+	var app = new Vue({
+		el: "#app",
+		data: {
+			message: "Hello",
+			htmlCode: "<h1>Hello h1</h1>",
+			num: 10,
+			resolution: true,
+		}
+	})
+</script>
+</body>
+</html>

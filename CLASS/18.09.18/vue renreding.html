@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue rendering</title>
+</head>
+<body>
+
+<div id="app">
+	<div v-if="seen">VISIBLE</div>
+	<div v-else>HIDDEN</div>
+
+	<div v-if="Math.random() > 0.5">Больше 0.5</div>
+	<div v-else>Меньше 0.5</div>
+
+	<div v-if="word == 'A'">A</div>
+	<div v-else-if="word == 'B'">B</div>
+	<div v-else>NOT A/B</div>
+</div>
+<script src="vue.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			seen: true,
+			word: "A"
+		}
+	})
+</script>
+</body>
+</html>

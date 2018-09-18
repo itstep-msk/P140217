@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue proxy</title>
+</head>
+<body>
+
+<script src="vue.js"></script>
+<script>
+	var fruits = { apple: 1 }
+
+	var app = new Vue({
+		data: fruits // data: fruits == data: { apple: 1 }
+	})
+	// Проксироваться не будет
+	//fruits.orange = 10
+
+	// Значение объектов равны друг другу
+	console.log(app.apple === fruits.apple) // true
+
+	// Все, что меняем у app меняется и у fruits
+	app.apple = 10;
+	console.log("Фрукты fruit: " + fruits.apple);
+
+	// Все, что меняем у fruits меняется и у app
+	fruits.apple = 20;
+	console.log("Фрукты app: " + app.apple)
+
+</script>
+</body>
+</html>

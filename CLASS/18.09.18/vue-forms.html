@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue forms</title>
+</head>
+<body>
+
+<div id="app">
+	<input type="checkbox" v-model="checkItem">
+	<div>{{ checkItem }}</div>
+
+	<input type="checkbox" value="Alex" v-model="checkedNames">
+	<span>Alex</span>
+
+	<input type="checkbox" value="Dmitry" v-model="checkedNames">
+	<span>Dmitry</span>
+
+	<input type="checkbox" value="Petya" v-model="checkedNames">
+	<span>Petya</span>
+
+	<div>Отмеченные имена: {{ checkedNames }}</div>
+</div>
+
+<script src="vue.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			checkItem: false,
+			checkedNames: []
+		}
+	})
+</script>
+</body>
+</html>
