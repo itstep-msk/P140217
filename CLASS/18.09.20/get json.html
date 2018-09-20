@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>get json</title>
+</head>
+<body>
+
+<style>
+	.row {
+		display: none;
+	}
+</style>
+
+<input class="key" placeholder="key">
+<input class="value" placeholder="value">
+<input class="button" type="submit">
+<div class="list"></div>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+	var key = $(".key");
+	var value = $(".value");
+	var button = $(".button");
+	var list = $(".list");
+
+	button.on("click", function() {
+		$.ajax({
+			url: "json.php",
+			type: "POST",
+			data: {
+				"key":key.val(),
+				"value": value.val()
+			},
+			success: function(data) {
+				addData(data);
+				console.log(data)
+			}
+		})
+	})
+
+	$.getJSON("fruit.json", function(data) {
+		addData(data);
+	})
+
+	function addData(dataObj) {
+		var obj;
+
+		if (typeof dataObj == "object") {
+			obj = dataObj;
+		} else {
+			obj = $.parseJSON(dataObj);
+		}
+		
+		if(list.html() == "") {
+			for(var i = 0; i < obj.length ; i++) {
+				for(item in obj[i]) {
+					list.append("<div class='row'>" + "Key: " + item + " Value: " + obj[i][item] + "</div>");
+					list.find(".row").show();
+				}
+			}
+		} else {
+			for(item in obj[obj.length-1]) {
+				list.append("<div class='row'>" + "Key: " + item + " Value: " + obj[obj.length-1][item] + "</div>");
+				list.find(".row").slideDown();
+			}
+		}
+		
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<form action="data.php" method="POST">
+	<input class="text" name="fruit">
+	<input class="button" type="submit">
+</form>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+	var text = $(".text");
+	var button = $(".button");
+
+	$("form").on("submit", function(e) {
+		// Отмена события
+		e.preventDefault();
+
+		//console.log($("form").serialize()); // fruit=helloWorld
+
+		$.ajax({
+			url: "data.php",
+			type: "POST",
+			data: $("form").serialize(),
+			success: function(text) {
+				console.log(text);
+			}
+		});
+
+		text.val("");
+
+	})
+</script>
+
+</body>
+</html>

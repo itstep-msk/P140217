@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<input class="text" name="fruit">
+<input class="button" type="submit">
+
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+	var text = $(".text");
+	var button = $(".button");
+
+	
+	button.on("click", function() {
+		$.ajax({
+			url: "data-inc.php",
+			type: "POST",
+			data: {"vegetable":text.val()},
+			success: function(data) {
+				console.log(data);
+				text.val(data)
+			}
+		});
+
+		text.val("");
+	})
+		
+
+
+</script>
+
+</body>
+</html>
