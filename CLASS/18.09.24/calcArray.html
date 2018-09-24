@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сложение массивов</title>
+</head>
+<body>
+
+<script>
+	var apple = [1,2,3];
+	var orange = [4,5,6];
+
+	Array.prototype.toString = function() {
+		var result = 0;
+		for(var i = 0; i < this.length; i++) {
+			result += this[i];
+		}
+
+		return result;
+	}
+
+	console.log(apple + orange); // 21
+	console.log(+apple);
+</script>
+
+</body>
+</html>

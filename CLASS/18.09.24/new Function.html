@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+	function Animal(n,a) {
+		this.name = n;
+		this.age = a;
+		this.say = function(text) {
+			return this.name + ": " + text;
+		}
+	}
+
+	// Создание экземпляра класса Animal
+	var dog = new Animal("Sharik", 65);
+	console.log(dog);
+	console.log(dog.say("Hola"));
+
+	// Расширать "класс" можно и после создания экземпляра
+	Animal.prototype.getNameAndAge = function() {
+		return "Имя: " + this.name + " Возраст: " + this.age;
+	}
+
+	console.log(dog.getNameAndAge()) // Имя: Sharik Возраст: 65
+
+	// Наследование от объекта dog
+	var madDog = Object.create(dog);
+
+
+	console.log(madDog.name) // "Sharik";
+	madDog.name = "Max";
+	console.log(madDog.getNameAndAge()); // Имя: Sharik Возраст: 65
+	console.log(dog.name) // "Sharik"
+
+	// PROTOTYPE
+	/*
+	В JS все объекты наследуют свойство prototype
+
+	Строки - String.prototype
+	Числа - Number.prototype
+	Булевые - Boolean.prototype
+	Объекты - Object.prototype
+	Массивы - Array.prototype
+
+	Кроме null и undefined
+	*/
+
+	var obj = {};
+	var obj2 = new Object();
+	var obj3 = Object.create(Object.prototype);
+
+	console.log(obj);
+	console.log(obj2);
+	console.log(obj3);
+
+	console.log("Hello".toUpperCase()) // "HELLO"
+	String.prototype.helloWorld = function() {
+		return "Stupid method";
+	}
+
+	console.log("Hello".helloWorld()) // "Stupid method"
+
+	var objNull = Object.create(null);
+
+	console.log(objNull);
+
+	//objNull.wtf = ":D";
+
+	
+
+
+</script>
+</body>
+</html>

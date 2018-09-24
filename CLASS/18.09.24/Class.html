@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Классы</title>
+</head>
+<body>
+
+<script>
+	/*
+	class НазваниеКласса extends НазваниеРодителя {
+		// constructor
+		// свойства и методы
+	}
+	*/
+
+	class Animal {
+		constructor(n, a) {
+			var name = n;
+			this.setName = function(value) { name = value }
+			this.getName = function() { return name }
+		}
+
+		say(text) {
+			return this.getName() + ": " + text;
+		}
+	}
+
+	var dog = new Animal("Sharik", 65);
+
+	console.log(dog)
+	console.log(dog.say("Hola")); // Sharik: Hola
+
+	// Наследование
+
+	class Rabbit extends Animal {
+		jump() {
+			return "jump...";
+		}
+
+		get NameMethod() {
+			return "Имя: " + this.getName();
+		}
+
+		set NameMethod(value) {
+			this.setName(value);
+		}
+
+	}
+
+	var elpy = new Rabbit("elpy", 10);
+	console.log(elpy);
+	console.log(elpy.jump());
+	console.log(elpy.NameMethod) // Имя: elpy
+	elpy.NameMethod = "miniRabbit";
+	console.log(elpy.NameMethod) // Имя: miniRabbit
+</script>
+
+</body>
+</html>
