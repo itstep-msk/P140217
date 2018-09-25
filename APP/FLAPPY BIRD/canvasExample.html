@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas example</title>
+</head>
+<body>
+
+<canvas id="game" width="288" height="512"></canvas>
+
+<script>
+	var canvas = document.getElementById("game");
+	var ctx = canvas.getContext("2d");
+	var x = 0;
+	var y = 0;
+
+	ctx.fillStyle = "green"
+	ctx.fillRect(x,y,20,20);
+
+	document.addEventListener("keydown", function(e) {
+		switch(e.keyCode) {
+			case 38:
+				y--;
+				break;
+			case 40:
+				y++
+				break;
+			case 37:
+				x--;
+				break;
+			case 39:
+				x++;
+				break;
+		}
+		ctx.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
+		ctx.fillRect(x,y,20,20);
+	})
+</script>
+
+</body>
+</html>

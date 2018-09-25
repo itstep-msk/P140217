@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script>
+		var fruits = ["apple","orange","plum"];
+
+		fruits.forEach(function(item, index) {
+			console.log(item, index);
+		})
+
+		var fruitsFilter = fruits.filter(function(item, index) {
+			if(item.length < 5) {
+				return item;
+			}
+		})
+
+		fruits.map(function(item, index) {
+			console.log(item, index);
+		})
+
+
+function makeArmy() {
+
+			var shooters = [];
+
+			for (var i = 0; i < 10; i++) {
+
+				var shooter = function func() {
+					return func.val
+				};
+				shooter.val = i
+
+				shooters.push(shooter);
+			}
+
+			return shooters;
+		}
+
+		var army = makeArmy();
+
+		console.log(army[5]())
+
+/*
+		function makeArmy() {
+
+			var shooters = [];
+
+			for (var i = 0; i < 10; i++) {
+
+				var shooter = function func() {
+					return func.cusmotmValue;
+				};
+				shooter.cusmotmValue = i;
+
+				shooters.push(shooter);
+			}
+
+			return shooters;
+		}
+
+		var army = makeArmy();
+
+		console.log(army)
+*/
+	</script>
+
+</body>
+</html>
