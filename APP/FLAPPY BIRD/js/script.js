@@ -14,6 +14,8 @@ var player = {
 	y: 150
 }
 
+// Добавляет первую трубу pipeUp, x = ширине canvas'a
+
 pipes.push({
 	x: canvas.width,
 	y: 0
@@ -28,20 +30,29 @@ pipeBottom.src = "img/pipeBottom.png";
 function drawPipes() {
 	for(var i = 0; i < pipes.length; i++) {
 		ctx.drawImage(pipeUp, pipes[i].x, pipes[i].y);
-		ctx.drawImage(pipeBottom, pipes[i].x, pipes[i].y + pipeUp.height + distance)
+		ctx.drawImage(pipeBottom, pipes[i].x, pipes[i].y + pipeUp.height + distance);
 		pipes[i].x--;
 
+		// Если одна из труб достигла центра экрана то добавить еще трубу
 		if(pipes[i].x == 125) {
 			pipes.push({
 				x: canvas.width,
 				y: Math.floor(Math.random() * pipeUp.height) - pipeUp.height
 			})
 		}
-		console.log(pipes);
+
+		if(player.x + bird.width >= pipes[i].x
+			&& player.x < pipes[i].x + pipeUp.width
+			&& (player.y < pipes[i].y + pipeUp.height
+				|| player.y + bird.height >= pipes[i].y + pipeUp.height + distance)
+				|| player.y + bird.height >= canvas.height - ground.height) {
+			window.location.reload();
+		}
 	}
 }
 
 function draw() {
+	// Очистка canvas'a
 	ctx.clearRect(0,0, canvas.width, canvas.height);
 	ctx.drawImage(background,0,0);
 	drawPipes();
@@ -59,4 +70,5 @@ function jump(e) {
 
 document.addEventListener("keydown", jump);
 
+// Запуск функции тогда когда загрузится последнее изображение
 pipeBottom.onload = draw;
