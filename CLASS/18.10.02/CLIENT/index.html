@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Client</title>
+</head>
+<body>
+
+<input class="nick" placeholder="nick">
+<input class="message" placeholder="message">
+<input type="submit" class="button" value="send">
+<div class="messages"></div>
+
+<script src="socket.io.js"></script>
+<script>
+	// Подключаемся к сокет серверу(node.js)
+	var socket = io.connect("http://127.0.0.1:7777");
+	var button = document.querySelector(".button");
+	var nick = document.querySelector(".nick");
+	var message = document.querySelector(".message");
+	var messages = document.querySelector(".messages");
+
+	button.addEventListener("click", function() {
+		// emit создает событие. Первый аргумент название события, второй - данные, которые передаем
+		socket.emit("clientEvent", nick.value + ": " + message.value);	
+	})
+
+	// Прослушиваем сообщение с сервера
+	socket.on("serverEvent", function(data) {
+		messages.innerHTML += "<div>" + data + "</div>";
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Socket paint</title>
+</head>
+<body>
+
+<svg style="border: 1px solid" class="paint">
+	<polyline class="polyline" points="" stroke="black" fill="none">
+</svg>
+
+<script src="socket.io.js"></script>
+<script>
+	var socket = io.connect("http://127.0.0.1:7777");
+	var paint = document.querySelector(".paint");
+	var polyline = document.querySelector(".polyline");
+	var result = "";
+
+	paint.addEventListener("mousedown", function() {
+		paint.addEventListener("mousemove", function(e) {
+			// Сохраняем координаты. "10,10 20,20 30,30"
+			result += e.x + "," + e.y + " ";
+
+			// Отправляем на сервер координаты
+			socket.emit("clientEvent", result)
+		})
+	})
+
+	// Принимаем с сервера координаты
+	socket.on("serverEvent", function(data) {
+		polyline.setAttribute("points", data)
+	});
+</script>
+
+</body>
+</html>
