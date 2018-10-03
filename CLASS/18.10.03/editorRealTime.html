@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>real time editor</title>
+</head>
+<body>
+
+<style>
+	body {
+		margin: 0;
+	}
+	.code {
+		width: 50%;
+		height: 500px;
+		box-sizing: border-box;
+		resize: none;
+		outline: none;
+		border: 1px solid;
+		border-right: 0;
+	}
+
+	.result {
+	    width: 50%;
+	    height: 500px;
+	    display: inline-block;
+	    margin-left: -4px;
+	    border: 1px solid;
+	    box-sizing: border-box;
+	    vertical-align: top;
+	}
+</style>
+
+<textarea class="code"></textarea>
+<div class="result"></div>
+<select class="select">
+	<option>RED</option>
+	<option>GREEN</option>
+	<option>YELLOW</option>
+</select>
+
+<script>
+	var code = document.querySelector(".code");
+	var result = document.querySelector(".result");
+	var select = document.querySelector(".select");
+
+	select.addEventListener("change", function() {
+		code.style.background = this.value;
+	})
+
+	code.addEventListener("input", function() {
+		result.innerHTML = code.value;
+	})
+</script>
+
+</body>
+</html>

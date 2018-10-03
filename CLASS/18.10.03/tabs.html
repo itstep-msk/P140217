@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TABS</title>
+</head>
+<body>
+
+<style>
+	.tabs {
+		width: 500px;
+		margin: 0 auto;
+	}
+
+	.tabs-link {
+		display: inline-block;
+		padding: 10px 15px;
+		border: 1px solid;
+	}
+
+	.tabs-content {
+		padding: 10px 15px;
+		border: 1px solid;
+		display: none;
+	}
+</style>
+
+<div class="tabs">
+	<div class="tabs-links">
+		<div class="tabs-link" data-link-id="0">Яблоки</div>
+		<div class="tabs-link" data-link-id="1">Апельсины</div>
+		<div class="tabs-link" data-link-id="2">Грушы</div>
+	</div>
+	<div class="tabs-contents">
+		<div class="tabs-content">Текст про яблоки</div>
+		<div class="tabs-content">Текст про апельсины</div>
+		<div class="tabs-content">Текст про груши</div>
+	</div>
+</div>
+
+<script>
+	var tabs = document.querySelectorAll(".tabs-link");
+	var contents = document.querySelectorAll(".tabs-content");
+
+
+	
+	for(var i = 0; i < tabs.length; i++) {
+		tabs[i].addEventListener("click", function() {
+			// Забираем значение атрибута
+			var id = this.getAttribute("data-link-id");
+
+			// Цикл по всем элементам
+			contents.forEach(function(item) {
+				// Скрываем каждый элемент
+				item.style.display = "none";
+			})
+			// Обращаемся к конкретному элементу по индексу
+			contents[id].style.display = "block";
+		})
+	}
+	
+	tabs[0].click();
+</script>
+
+</body>
+</html>

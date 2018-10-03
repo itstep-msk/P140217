@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Разные ООП</title>
+</head>
+<body>
+
+<script>
+	// ООП в функциональном стиле
+
+	function Machine() {
+		var enabled = true;
+
+		this.enable = function() {
+			enabled = true;
+		}
+
+		this.disable = function() {
+			enabled = false;
+		}
+	}
+
+	function CoffeMachine() {
+		//var this = {};
+
+		Machine.call(this);
+
+		var waterAmount = 0;
+
+		this.setWaterAmount = function(amount) {
+			waterAmount = amount;
+		}
+
+		//return this
+	}
+
+	/*
+	при вызове через new CoffeMachine() внутри функции-конструктора создается объект this
+	this = {}
+
+	в this создаются новые методы
+	//////////////////////////
+	this.setWaterAmount = ...
+
+	this {
+		this.setWaterAmount: ...
+	}
+	//////////////////////////
+	При вызову функции Machine через метод call передается ссылка на текущий объект и происходит
+	добавление новых методов
+	//////////////////////////
+	this.enable = ...
+	this.disable = ...
+
+	this = {
+		this.enable: ...,
+		this.disable: ...,
+		this.setWaterAmount: ...,
+	}
+
+	//////////////////////////
+
+	*/
+
+	var bosch = new CoffeMachine();
+
+	console.log(bosch)
+
+	// ООП в прототипном стиле
+
+	var Animals = {
+		legs: 4,
+		head: 1,
+		name: null,
+		age: null,
+		say: function(text) {
+			return this.name + ": " + text
+		}
+	}
+
+	var dog = {}
+
+	dog.__proto__ = Animals;
+
+	console.log(dog) // {}, по-умолчанию объект пустой, но наследуемые свойства доступны и видны в __proto__
+	// После того как добавили на 87 и 88 строке значения они конечно будут видны и на 85 строке. Это особенность __proto__
+	dog.name = "Sharik";
+	dog.age = 65;
+	console.log(dog.say("Hola"));
+	console.log(dog)
+
+	// ООП на классах
+	class AnimalsClass {
+		constructor(n,a) {
+			this.legs = 4,
+			this.head = 1,
+			this.name = n;
+			this.age = a;
+		} 
+	}
+
+	var dogFromClass = new AnimalsClass("Sharik", 65);
+
+	console.log(dogFromClass);
+
+	// Наследование на классах
+	class Rabbit extends AnimalsClass {
+		constructor(n,a,lastName) {
+			super(n,a);
+			this.say = function(text) {
+				return text;
+			}
+			this.lastName = lastName;
+		}
+
+		//this.jump = function() {} == jump() {}
+		//внутри конструктора          вне конструктора
+
+		jump() {
+			return "jump..."
+		}
+	}
+
+	var rabbit = new Rabbit("Banny", 10,"BannyLastName");
+	console.log(rabbit)
+	console.log(rabbit.jump()) // "jump..."
+	console.log(rabbit.say("Hello world")) // "jump..."
+</script>
+
+</body>
+</html>
