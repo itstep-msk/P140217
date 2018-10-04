@@ -1,0 +1,66 @@
+body {
+	margin: 0;
+}
+
+.chat {
+    width: 240px;
+    height: 300px;
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+    overflow: hidden;
+    transition: all, .25s;
+}
+
+.chat-header {
+    height: 20px;
+    background: green;
+}
+
+.hidden-chat {
+	height: 20px;
+}
+
+.window {
+	box-sizing: border-box;
+    border: 1px solid;
+    width: 100%;
+    height: calc(100% - 60px);
+    position: relative;
+    overflow: hidden;
+    background: white;
+}
+
+.rows {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.message {
+	width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    outline: none;
+}
+
+.row:nth-child(odd) {
+	text-align: left;
+}
+
+.row:nth-child(even) {
+	text-align: right;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.text {
+    background: #0f0;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}

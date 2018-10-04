@@ -1,0 +1,46 @@
+body {
+	margin: 0;
+}
+
+.circle-menu {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	margin: 100px auto;
+}
+
+.button {
+	width: 100%;
+	height: 100%;
+	background: purple;
+	position: absolute;
+	border-radius: 50%;
+}
+
+.parent-link {
+	width: 200%;
+    height: 200%;
+    left: -50%;
+    top: -50%;
+    position: absolute;
+    z-index: -1;
+}
+
+.link {
+    width: 50px;
+    height: 50px;
+    background: orange;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: -1;
+    transition: all, .25s;
+}
+
+.active {
+	top: -180px;
+}
