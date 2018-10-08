@@ -43,7 +43,7 @@ function drawPipes() {
 
 		if(player.x + bird.width >= pipes[i].x
 			&& player.x < pipes[i].x + pipeUp.width
-			&& (player.y < pipes[i].y + pipeUp.height
+			&& (player.y < pipes[i].y + pipeUp.height 
 				|| player.y + bird.height >= pipes[i].y + pipeUp.height + distance)
 				|| player.y + bird.height >= canvas.height - ground.height) {
 			window.location.reload();
