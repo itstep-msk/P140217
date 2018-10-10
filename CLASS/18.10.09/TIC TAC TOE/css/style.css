@@ -1,0 +1,30 @@
+body {
+	margin: 0;
+}
+
+.container {
+	perspective: 1000px;
+}
+
+.field {
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+.dagger {
+	background: green;
+}
+
+.zero {
+	background: yellow;
+}

@@ -1,0 +1,62 @@
+body {
+	background: #f3f7fa;
+}
+
+.ticket {
+    width: 550px;
+    height: 150px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    font-family: Arial;
+}
+
+.ticket__action {
+    width: 150px;
+    padding: 20px;
+    text-align: center;
+}
+
+.ticket__company-logo {
+	background: #0f0;
+    height: 40px;
+    width: 120px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.button {
+	background: #ff6d00;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.ticket__info {
+    display: flex;
+    padding: 20px;
+}
+
+.ticket__departure {
+    width: 150px;
+}
+
+.ticket__time {
+	font-size: 30px
+}
+
+.ticket__destination {
+	font-size: 14px;
+}
+
+.ticket__aeroport {
+    display: inline-block;
+}
+
+.ticket__city {
+	display: inline-block;
+}
+
+.ticket__changes {
+	width: 100px;
+}
