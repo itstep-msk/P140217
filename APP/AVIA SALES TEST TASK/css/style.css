@@ -3,13 +3,16 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.tickets {
+    margin-bottom: 20px;
+}
+
 .ticket {
     width: 566px;
     height: 150px;
     background: white;
     border-radius: 5px;
     display: flex;
-    font-family: Arial;
     margin: 0 auto; /* УБРАТЬ */
 }
 
@@ -21,7 +24,6 @@ body {
 }
 
 .ticket__company-logo {
-	background: #0f0;
     height: 35px;
     width: 120px;
     margin-bottom: 16px;
@@ -41,6 +43,7 @@ body {
     padding: 20px;
     color: #4a4a4a;
     display: flex;
+    flex-grow: 1;
     justify-content: space-between;
 }
 
