@@ -1,0 +1,32 @@
+body {
+	margin: 0;
+}
+
+.weekday {
+	display: flex;
+}
+
+.weekday-item {
+	flex-grow: 1;
+	background: green;
+	text-align: center;
+}
+
+.days {
+	display: flex;
+    flex-wrap: wrap;
+}
+
+.day {
+	background: #0f0;
+    width: 14.285714%;
+    height: 100px;
+    border: 1px solid;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 100px;
+}
+
+.today {
+	background: red;
+}
