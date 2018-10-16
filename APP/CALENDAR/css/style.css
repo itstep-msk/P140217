@@ -2,14 +2,15 @@ body {
 	margin: 0;
 }
 
-.weekday {
+.weekdays {
 	display: flex;
 }
 
 .weekday-item {
-	flex-grow: 1;
+	width: 100%;
 	background: green;
 	text-align: center;
+	color: white;
 }
 
 .days {
@@ -27,6 +28,26 @@ body {
     line-height: 100px;
 }
 
+.empty {
+	width: 14.285714%;
+    height: 100px;
+}
+
 .today {
 	background: red;
+}
+
+.popup {
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background: yellow;
+	display: none;
+	text-align: center;
+	font-size: 40px;
 }
