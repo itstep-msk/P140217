@@ -32,12 +32,17 @@ popup.close.on("click", function() {
 })
 
 popup.button.on("click", function() {
-	console.log(popup.caption.html() + ":" + popup.name.val() + ":" + popup.text.val());
-	addToDB(date.getFullYear(),date.getMonth(),popup.parent.attr("data-day"), popup.name.val() + ":" + popup.text.val())
-	console.log(DB)
-})
-// /POPUP
+	var year = date.getFullYear();
+	var month = date.getMonth();
+	var day = popup.parent.attr("data-day");
+	var data = popup.name.val() + ":" + popup.text.val();
+	
+	addToDB(year,month, day, data);
+	
+	console.log(DB);
+});
 
+// POPUP
 days.on("click", ".day", function() {
 	popup.caption.html(date.getFullYear() + "/" + date.getMonth() + "/" + $(this).attr("data-day"))
 	popup.parent.show();
@@ -48,6 +53,23 @@ Date.prototype.daysInMonth = function() {
 	return 32 - new Date(date.getFullYear(), date.getMonth(), 32).getDate();
 };
 
+function saveToLocalStorage() {
+	localStorage.calendar = JSON.stringify(DB);
+}
+
+function loadFromLocalStorage() {
+	DB = JSON.parse(localStorage.calendar);
+}
+
+function selectDaysWithTasks() {
+	var year = date.getFullYear();
+	var month = date.getMonth();
+
+	for(item in DB[year][month]) {
+		selectThisDay(item, "tasks")
+	}
+}
+
 function addToDB(year, month, day, data) {
 	if(!(year in DB)) {
 		DB[year] = {};
@@ -56,10 +78,12 @@ function addToDB(year, month, day, data) {
 		DB[year][month] = {};
 	}
 	DB[year][month][day] = data;
+ 	
+ 	saveToLocalStorage();
 }
 
-function selectThisDay(){
-	$(".day[data-day='" + date.getDate() + "']").addClass("today")
+function selectThisDay(number, className){
+	$(".day[data-day='" + number + "']").addClass(className)
 }
 
 function createMonth() {
@@ -97,7 +121,9 @@ function init() {
 	addingDays();
 	addingWeekdays();
 	createMonth();
-	selectThisDay();
+	selectThisDay(date.getDate(), "today");
+	loadFromLocalStorage();
+	selectDaysWithTasks();
 }
 
 init();
