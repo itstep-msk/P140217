@@ -4,16 +4,21 @@
 	<title>IFINUM</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/uikit.min.css">
+	<link rel="stylesheet" href="css/datepicker.min.css">
 </head>
 <body class="uk-background-muted">
 
 <div id="app">
+	
+</div>
+
+<template id="home">
 	<div class="uk-container">
-		<h1 class="uk-heading-bullet uk-heading-line"><span>Invoices</span></h1>
+		<h1 class="uk-heading-bullet uk-heading-line uk-margin-large-top"><span>Invoices</span></h1>
 
 		<div class="uk-card uk-card-default uk-card-body">
 		    <h3 class="uk-card-title">Action</h3>
-			<button class="uk-button uk-button-primary uk-button-large">Action</button>
+			<a href="/about" class="uk-button uk-button-primary uk-button-large">Action</a>
 		</div>
 
 		<div class="uk-card uk-card-default uk-card-body uk-margin-top">
@@ -50,10 +55,40 @@
 			</table>
 		</div>
 	</div>
-</div>
+</template>
+
+<template id="about">
+	<div class="uk-container">
+		<h1 class="uk-heading-bullet uk-heading-line uk-margin-large-top"><span>Create Invoices</span></h1>
+
+		<div class="uk-card uk-card-default uk-card-body uk-margin-top uk-margin-remove-left" uk-grid>
+		    <div class="uk-width-1-2 uk-padding-remove-left">
+		    	<h3 class="uk-card-title">Number</h3>
+		    	<input class="uk-input" type="text">
+		    </div>
+		    <div class="uk-width-1-2">
+		    	<h3 class="uk-card-title">Invoices date</h3>
+		    	<input class="uk-input datepicker-here" type="text">
+		    </div>
+		    <div class="uk-width-1-2 uk-padding-remove-left">
+		    	<h3 class="uk-card-title">Supply date</h3>
+		    	<input class="uk-input datepicker-here" type="text">
+		    </div>
+		    <div class="uk-width-1-1 uk-padding-remove-left">
+		    	<h3 class="uk-card-title">Comment</h3>
+		    	<textarea class="uk-textarea"></textarea>
+		    </div>
+		    <div class="uk-clearfix uk-width-1-1">
+				<button class="uk-float-right uk-button uk-button-primary uk-button-large">Save</button>
+			</div>
+		</div>
+	</div>
+</template>
 
 <script src="js/vue.min.js"></script>
 <script src="js/uikit.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/datepicker.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
