@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scroll block</title>
+</head>
+<body>
+
+<style>
+	body {
+		margin: 0;
+	}
+
+	.section {
+		width: 100%;
+		height: 2000px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+
+	.section-wide {
+		overflow: hidden;
+	}
+
+	.first {
+		background-image: url(img/first.jpg);
+	}
+
+	.wide {
+		height: 100vh;
+		width: 15000px;
+		background-image: url(img/wide.jpg);
+		background-size: contain;
+		transition: all, .25s;
+	}
+
+	.last {
+		background-image: url(img/last.jpg)
+	}
+
+	.scroll-disable {
+		overflow: hidden;
+	}
+</style>
+
+<div class="section first"></div>
+<div class="section-wide">
+	<div class="wide"></div>
+</div>
+<div class="section last"></div>
+
+<script>
+	var wide = document.querySelector(".wide");
+	var deltaY = 0;
+
+	window.addEventListener("scroll", function() {
+		window.addEventListener("mousewheel", function(e) {
+
+			if(this.scrollY >= wide.offsetTop) {
+				window.scrollTo(0, wide.offsetTop);
+
+				if(deltaY/100 >= 4500) {
+					document.body.classList.remove("scroll-disable");
+					return
+				}
+			
+				if(deltaY <= 0) {
+					document.body.classList.remove("scroll-disable");
+				} else {
+					document.body.classList.add("scroll-disable");
+					wide.style.marginLeft = -deltaY/100 + "px";
+				}
+
+				deltaY += e.deltaY;
+				console.log(deltaY)
+
+			}
+		})
+	})
+</script>
+</body>
+</html>
