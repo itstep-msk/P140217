@@ -1,0 +1,265 @@
+@font-face {
+	src: url("../fonts/Karla-Regular.ttf");
+	font-family: "Karla";
+	font-weight: 400;
+}
+
+
+@font-face {
+	src: url("../fonts/Karla-Bold.ttf");
+	font-family: "Karla";
+	font-weight: 700;
+}
+
+body {
+	margin: 0;
+	font-family: "Karla";
+    font-weight: 400;
+}
+
+/* BASE CLASS */
+.margin-common {
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.container {
+	width: 375px;
+	height: 667px;
+	background: #000;
+	margin: 0 auto;
+}
+
+/* FORM */
+.form {
+	background: #fff;
+    z-index: 2;
+    position: relative;
+    top: -50px;
+    padding: 40px;
+}
+
+.form__caption {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ad807d;
+}
+
+.form__input {
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid;
+    height: 35px;
+    width: 100%;
+    letter-spacing: 0.5px;
+    font-family: "Karla";
+    padding-bottom: 4px;
+}
+
+.form__input[type="password"] {
+	/*font-size: 24px;*/
+    /*letter-spacing: 1.5px;*/
+}
+
+.form__row {
+    margin-bottom: 30px;
+}
+
+.form__bottom {
+    background: #00a0ff;
+    margin-top: 35px;
+    padding: 20px 40px;
+    margin-bottom: -40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.form__bottom--large {
+	margin-left: -40px;
+    margin-right: -40px;
+}
+
+.form__bottom--height {
+    height: 45px;
+    margin-top: 40px;
+    line-height: 5px;
+}
+
+.form__button--enter {
+	width: 10px;
+    height: 10px;
+    background: green;
+}
+
+.form__button {
+    font-size: 14px;
+    color: #fff;
+}
+
+.form__steps {
+    position: absolute;
+    left: 35px;
+    bottom: 14px;
+    font-size: 50px;
+    font-weight: 700;
+    opacity: 0.3;
+    color: #fff;
+    letter-spacing: -2px;
+}
+
+.app__greeting {
+    height: 377px;
+    background: linear-gradient(45deg, #0090e5 0%,#0090e5 calc(50% - 15px),#00a0ff calc(50% - 15px), #00a0ff 100%);
+    position: relative;
+}
+
+.app__greeting-name {
+    font-family: "Karla";
+    font-size: 100px;
+    font-weight: 700;
+    position: absolute;
+    left: -8px;
+    top: 60px;
+    letter-spacing: -5px;
+    color: #fff;
+    z-index: 1;
+}
+
+.app__greeting-icon {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background-image: url(../img/icon.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    left: 0;
+    right: 0;
+    top: 110px;
+    bottom: 0;
+    margin: auto;
+}
+
+.app__desc {
+	text-align: center;
+    font-size: 11px;
+    color: #fff;
+    margin-top: -25px;
+}
+
+.app__desc-link {
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+    letter-spacing: 0.25px;
+}
+
+.app__header {
+    background: #000;
+    height: 12px;
+    padding: 32px 20px 20px 20px;
+}
+
+.app__button-back {
+    background: #f0f;
+    width: 10px;
+    height: 10px;
+    float: left;
+    margin-top: 5px;
+}
+
+.app__caption {
+    text-align: center;
+    font-size: 17px;
+    color: #fff;
+    transform: translateX(-6px);
+}
+
+.app__sign-up {
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url(../img/sign-up.jpg);
+    background-size: cover;
+    padding: 45px 0px 101px 24px;
+}
+
+.app__sign-up-caption {
+    font-size: 34px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: -0.25px;
+}
+
+.chat-window {
+    background: linear-gradient(45deg, #0090e5 0%,#0090e5 calc(50% + 90px),#00a0ff calc(50% - 15px), #00a0ff 100%);
+    height: 548px;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+.chat-window__date {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.chat__rows {
+    padding: 10px 25px;
+}
+
+.chat__row {
+    margin-top: 20px;
+    display: flex;
+}
+
+.chat__user-pic {
+    background: #0f0;
+    width: 40px;
+    height: 40px;
+}
+
+.chat__message {
+    width: 215px;
+    height: 77px;
+    background: #f0f;
+}
+
+.chat__row--reverse {
+    flex-direction: row-reverse;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px 23px;
+    position: relative;
+}
+
+.chat__photo {
+    width: 20px;
+    height: 20px;
+    background: #0f0;
+}
+
+.chat__textarea {
+    margin-left: 20px;
+    width: 60%;
+    background: none;
+    border: 0;
+    outline: 0;
+    padding-top: 10px;
+    resize: none;
+    color: #fff;
+}
+
+.chat__send {
+    background: #ffbdb8;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: -30px;
+    right: 25px;
+    border-radius: 50%;
+}
