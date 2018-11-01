@@ -6,32 +6,118 @@
 </head>
 <body>
 
-<div class="container">
-	<div class="app__greeting">
-		<div class="app__greeting-name">Chat</div>
-		<div class="app__greeting-icon"></div>
-	</div>
-	<div class="app__bottom">
-		<form action="" method="POST" class="form margin-common">
-			<div class="form__row">
-				<div class="form__caption">Username</div>
-				<input type="text" class="form__input">
-			</div>
-			<div class="form__row">
-				<div class="form__caption">Password</div>
-				<input type="password" class="form__input">
-			</div>
-			<div class="form__bottom form__bottom--large">
-				<div class="form__button form__button--enter"></div>
-				<div class="form__button">Get Started</div>
-			</div>
-		</form>
-		<div class="app__desc">
-			Not registered? <a class="app__desc-link" href="#">Create Account</a>
-		</div>
+<div id="app">
+	<div class="container">
+  		<router-view></router-view>
 	</div>
 </div>
 
+<template id="home">
+	<div>
+		<div class="app__greeting">
+			<div class="app__greeting-name">Chat</div>
+			<div class="app__greeting-icon"></div>
+		</div>
+		<div class="app__bottom">
+			<form action="" method="POST" class="form margin-common">
+				<div class="form__row">
+					<div class="form__caption">Username</div>
+					<input type="text" class="form__input">
+				</div>
+				<div class="form__row">
+					<div class="form__caption">Password</div>
+					<input type="password" class="form__input">
+				</div>
+				<div class="form__bottom form__bottom--large">
+					<div class="form__button form__button--enter"></div>
+					<router-link to="/registration" class="form__button">Get Started</router-link>
+				</div>
+			</form>
+			<div class="app__desc">
+				Not registered? <a class="app__desc-link" href="#">Create Account</a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template id="registration">
+	<div>
+		<div class="app__header">
+			<router-link to="/" class="app__button-back"></router-link>
+			<div class="app__caption">New Account</div>
+		</div>
+		<div class="app__sign-up">
+			<div class="app__sign-up-caption">Sign Up</div>
+		</div>
+		<div class="app__bottom">
+			<form action="" method="POST" class="form margin-common">
+				<div class="form__row">
+					<div class="form__caption">Name</div>
+					<input type="text" class="form__input">
+				</div>
+				<div class="form__row">
+					<div class="form__caption">Email</div>
+					<input type="text" class="form__input">
+				</div>
+				<div class="form__row">
+					<div class="form__caption">Password</div>
+					<input type="password" class="form__input">
+				</div>
+				<div class="form__row">
+					<div class="form__caption">Phone</div>
+					<input type="text" class="form__input">
+				</div>
+				<div class="form__bottom form__bottom--large form__bottom--height">
+					<div class="form__button">Next Step</div>
+					<div class="form__button"></div>
+					<div class="form__steps">1 of 3</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</template>
+
+<template id="chat">
+	<div>
+		<div class="app__header">
+			<div class="app__button-back"></div>
+			<div class="app__caption">Michael, Amy</div>
+		</div>
+		<div class="chat">
+			<div class="chat-window">
+				<div class="chat__rows">
+					<div class="chat-window__date">Today at 10:45am</div>
+					<div class="chat__row">
+						<div class="chat__user-pic"></div>
+						<div class="chat__message">
+							<div class="chat__message-value">
+								Hi Andrea! How you are?
+							</div>
+							<div class="chat__message-date">5 minutes ago</div>
+						</div>
+					</div>
+					<div class="chat__row chat__row--reverse">
+						<div class="chat__user-pic"></div>
+						<div class="chat__message">
+							<div class="chat__message-value">
+								Doing good, how do you feel about grabbing a coffee sometime?
+							</div>
+							<div class="chat__message-date">5 minutes ago</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="chat-input">
+				<div class="chat__photo"></div>
+				<textarea class="chat__textarea" placeholder="Type message. . ."></textarea>
+				<div class="chat__send"></div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script src="js/vue.min.js"></script>
+<script src="js/vue-router.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
